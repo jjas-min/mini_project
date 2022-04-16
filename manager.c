@@ -34,3 +34,72 @@ void saveFile(Product *p[],int count){
     fclose(fp);
     printf("저장 성공!");
 }    //상품 데이터를 파일에 저장하는 함수
+void searchName(Product *p[],int count){
+        char name[100];
+        int index=0;
+        printf("검색할 상품 이름?");
+        getchar();
+        scanf("%[^\n]s",name);
+        getchar();
+        printf("이름\t\t설명\t\t무게\t\t가격\t\t배송방법\n");
+        printf("=====================================\n");
+        for(int i=0;i<count;i++,index++){
+                char *ptr = {NULL};
+                ptr = strstr(p[i]->productName,name);
+                if(ptr != NULL){
+                        readProduct(*p[index]);
+                }
+        }
+
+}       //상품을 검색하는 함수
+void searchExplain(Product *p[],int count){
+        char explain[100];
+        int index=0;
+        printf("검색할 상품 설명?");
+        getchar();
+        scanf("%[^\n]s",explain);
+        getchar();
+        printf("이름\t\t설명\t\t무게\t\t가격\t\t배송방법\n");
+        printf("=====================================\n");
+        for(int i=0;i<count;i++,index++){
+                char *ptr = {NULL};
+                ptr = strstr(p[i]->productExplain,explain);
+                if(ptr != NULL){
+                        readProduct(*p[index]);
+                }
+        }
+}
+void searchWeight(Product *p[],int count){
+        char weight[100];
+        int index=0;
+        printf("검색할 상품 무게?");
+        getchar();
+        scanf("%[^\n]s",weight);
+        getchar();
+        printf("이름\t\t설명\t\t무게\t\t가격\t\t배송방법\n");
+        printf("=====================================\n");
+        for(int i=0;i<count;i++,index++){
+                char *ptr = {NULL};
+                ptr = strstr(p[i]->productWeight,weight);
+                if(ptr != NULL){
+                        readProduct(*p[index]);
+                }
+        }
+}
+
+int selectMenu(){
+        int menu;
+        printf("1. 조회\n");
+        printf("2. 추가\n");
+        printf("3. 수정\n");
+        printf("4. 삭제\n");
+        printf("5. 파일저장\n");
+        printf("6. 이름검색\n");
+        printf("7. 설명검색\n");
+        printf("8. 무게검색\n");
+        printf("0. 종료\n\n");
+        printf("=> 원하는 메뉴는? ");
+        scanf("%d", &menu);
+        return menu;
+
+}       //수행할 명령을 고르는 함수{
