@@ -41,4 +41,29 @@ int updateProduct(Product *p){
     printf("=> 수정됨!\n");
     return 1;
 }       //상품을 수정하는 함수
+void deleteProduct(Product *p[], int count){
+        int confirm, index;
+        listProduct(p,count);
+        printf("번호는? (취소:0)");
+        scanf("%d",&index);
+        if(index == 0) ;
+        else {
+                printf("정말 삭제하시겠습니까?(삭제:1)");
+                scanf("%d",&confirm);
+                if(confirm == 1) {
+                        free(p[index-1]);
+                        p[index-1] = NULL;
+                        printf("삭제됨!");
+                }
+        }
+} //상품을 삭제하는 함수
+void listProduct(Product *p[],int count){
+        printf("이름\t\t설명\t\t무게\t\t가격\t\t배송방법\n");
+        printf("======================================\n");
+        for(int i=0;i<count;i++){
+                if(p[i]==NULL) continue;
+                readProduct(*p[i]);
+        }
+        printf("\n");
+}       //모든 상품을 출력하는 함수
 
