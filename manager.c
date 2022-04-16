@@ -8,7 +8,7 @@ int loadFile(Product *p[]){
    FILE *fp;
    fp = fopen("product.txt","r"); //파일 오픈
    if (fp == NULL){ //파일이 없으면 종료
-        printf("=>파일없음");
+        printf("=>파일없음\n");
         return 0;
     }
     for(int i=0;i<20;i++,count++){
@@ -21,7 +21,7 @@ int loadFile(Product *p[]){
         fscanf(fp,"%d",&p[i]->way);
     }
     fclose(fp);
-    printf("로딩 완료!");
+    printf("로딩 완료!\n");
     return count;
 }
 void saveFile(Product *p[],int count){
