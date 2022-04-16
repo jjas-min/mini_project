@@ -24,3 +24,13 @@ int loadFile(Product *p[]){
     printf("로딩 완료!");
     return count;
 }
+void saveFile(Product *p[],int count){
+    FILE *fp;
+    fp = fopen("product.txt","wt");
+    for(int i=0;i<count;i++){
+        if (p[i] == NULL) continue;
+        fprintf(fp,"%s\n%s\n%s\n%d\n%d",p[i]->productName, p[i]->productExplain, p[i]->productWeight, p[i]->price, p[i]->way);
+    }
+    fclose(fp);
+    printf("저장 성공!");
+}    //상품 데이터를 파일에 저장하는 함수
