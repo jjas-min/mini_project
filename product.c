@@ -20,3 +20,6 @@ int createProduct(Product *p){
     scanf("%d",&p->way);
     return 1;
 }
+void readProduct(Product p){
+    printf("%s\t\t%s\t\t%s\t\t%d\t\t%d\n", p.productName, p.productExplain, p.productWeight, p.price, p.way);
+}       //상품 하나를 출력하는 함수
